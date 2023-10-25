@@ -33,10 +33,15 @@
             );
             map.addLayer(backgroundLayer);
 
+            map.addControl(L.mapquest.control());
+            
             // ピン定義
             const marker = L.marker([36.51, 137.11]); // ピン＝Markerを初期化
             marker.bindPopup('津田塾大学'); // ポップアップを紐付け
             map.addLayer(marker); // ピンを地図上に追加
+
+            .bindPopup('This is Manchester!')
+            .addTo(map);
             
     
 

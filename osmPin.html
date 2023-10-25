@@ -34,7 +34,14 @@
             map.addLayer(backgroundLayer);
             
             // ピン定義
-            map.on('click',L.marker(map.latlng).on('click'));
+           map.on('click', onMapClick);
+            
+        function onMapClick(e) {
+          var mk = L.marker(e.latlng).on('click', onMarkerClick).addTo(map);
+        }
+        function onMarkerClick(e) {
+          map.removeLayer(e.target);
+        }
 
             // 出典表示を追加
             map.attributionControl.addAttribution(
